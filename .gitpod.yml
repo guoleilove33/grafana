@@ -3,6 +3,7 @@ image:
     file: .gitpod.Dockerfile
 tasks:
   - init: yarn install --immutable
-    command: yarn start && make run
+    command: yarn start
+  - command: make run
 
 
