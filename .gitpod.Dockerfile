@@ -12,5 +12,5 @@ RUN curl -fsSL https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz | tar
     && printf '%s\n' 'export GOPATH=/workspace/go' \
                       'export PATH=$GOPATH/bin:$PATH' > $HOME/.bashrc.d/300-go
 
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x  | bash - \
-    && apt-get install -y nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x  | sudo bash - \
+    && sudo apt-get install -y nodejs
