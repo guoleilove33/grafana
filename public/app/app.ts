@@ -101,6 +101,7 @@ import { createQueryVariableAdapter } from './features/variables/query/adapter';
 import { createSystemVariableAdapter } from './features/variables/system/adapter';
 import { createTextBoxVariableAdapter } from './features/variables/textbox/adapter';
 import { configureStore } from './store/configureStore';
+import {initIframeCommunication} from "./features/iframe-communication/IframeCommunication";
 
 // add move to lodash for backward compatabilty with plugins
 // @ts-ignore
@@ -256,6 +257,7 @@ export class GrafanaApp {
           app: this,
         })
       );
+      initIframeCommunication();
     } catch (error) {
       console.error('Failed to start Grafana', error);
       window.__grafana_load_failed();
