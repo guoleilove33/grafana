@@ -71,7 +71,7 @@ describe('DashboardScene', () => {
         ${'links'}       | ${[]}
       `(
         'A change to $prop should set isDirty true',
-        ({ prop, value }: { prop: keyof DashboardSceneState; value: any }) => {
+        ({ prop, value }: { prop: keyof DashboardSceneState; value: unknown }) => {
           const prevState = scene.state[prop];
           scene.setState({ [prop]: value });
 
@@ -125,13 +125,13 @@ describe('DashboardScene', () => {
       scene.onEnterEditMode();
     });
 
-    it('Should add app, uid, panelId and panelPluginType', () => {
+    it('Should add app, uid, panelId and panelPluginId', () => {
       const queryRunner = sceneGraph.findObject(scene, (o) => o.state.key === 'data-query-runner')!;
       expect(scene.enrichDataRequest(queryRunner)).toEqual({
         app: CoreApp.Dashboard,
         dashboardUID: 'dash-1',
         panelId: 1,
-        panelPluginType: 'table',
+        panelPluginId: 'table',
       });
     });
 
