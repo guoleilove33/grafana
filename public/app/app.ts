@@ -76,7 +76,6 @@ import { initAlerting } from './features/alerting/unified/initAlerting';
 import { initAuthConfig } from './features/auth-config';
 import { getTimeSrv } from './features/dashboard/services/TimeSrv';
 import { EmbeddedDashboardLazy } from './features/dashboard-scene/embedding/EmbeddedDashboardLazy';
-import {initIframeCommunication} from "./features/iframe-communication/IframeCommunication";
 import { initGrafanaLive } from './features/live';
 import { PanelDataErrorView } from './features/panel/components/PanelDataErrorView';
 import { PanelRenderer } from './features/panel/components/PanelRenderer';
@@ -257,7 +256,6 @@ export class GrafanaApp {
           app: this,
         })
       );
-      initIframeCommunication();
     } catch (error) {
       console.error('Failed to start Grafana', error);
       window.__grafana_load_failed();
